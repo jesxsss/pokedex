@@ -1,0 +1,10 @@
+{
+  "globalHeaders": {
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Content-Security-Policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:;",
+    "Permissions-Policy": "geolocation=(), microphone=(), camera=()"
+  }
+}

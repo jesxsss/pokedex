@@ -1,0 +1,20 @@
+Guía de Despliegue de PokeDex en Azure Static Web Apps
+Este documento detalla los pasos realizados para publicar la aplicación PokeDex en la nube utilizando Azure Static Web Apps, asegurando el cumplimiento de los estándares de seguridad requeridos.
+
+Paso 1: Configuración de Seguridad (Encabezados HTTP)
+Para garantizar una calificación A+ en los escaneos de seguridad, se creó un archivo de configuración llamado staticwebapp.config.json en la raíz del proyecto. Este archivo se encarga de inyectar los encabezados de seguridad obligatorios al servidor (Strict-Transport-Security, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Content-Security-Policy y Permissions-Policy).
+
+Paso 2: Sincronización del repositorio
+El código fuente de la aplicación, junto con la documentación y el archivo JSON de seguridad, fue subido al repositorio público de GitHub llamado pokedex (en la rama main) mediante los comandos git add, git commit y git push.
+
+Paso 3: Creación del recurso en el portal de Azure
+Se ingresó al portal de Azure con la cuenta for Students y se creó un nuevo recurso del tipo “Static Web App”. Se seleccionó la suscripción gratuita y se definió un nombre para el entorno de producción.
+
+Paso 4: Integración Continua con GitHub
+En la sección “Detalles de implementación”, se seleccionó GitHub como origen del código. Tras autorizar el acceso, se vinculó la cuenta seleccionando la organización correcta, el repositorio pokedex y la rama main.
+
+Paso 5: Compilación y Publicación
+En los valores de compilación se seleccionaron los ajustes predeterminados para el proyecto. Al hacer clic en “Revisar y crear”, Azure configuró automáticamente un flujo de trabajo (GitHub Actions) en el repositorio, el cual compiló el código y desplegó la aplicación en una URL pública.
+
+Paso 6: Validación de Seguridad (Calificación A+)
+Una vez que el estado del despliegue marcó como exitoso, se copió la URL pública generada por Azure y se evaluó en la herramienta securityheaders.com, obteniendo el grado máximo (A+) gracias a los encabezados configurados en el primer paso.
